@@ -53,9 +53,11 @@ function game() {
     let attempts = 0;
     const maxAttempts = 10;
 
+    // introduction
     console.log("Welcome to the Number Guessing Game!");
     console.log(`You have ${maxAttempts} attempts to guess the number.`);
     
+    // bonus tracker
     let hasWon = false;
 
     while (attempts < maxAttempts) {
@@ -74,9 +76,9 @@ function game() {
         }
     }
 
+    // bonus notification and score calculation
     if (hasWon) {
         console.log(`\nYou won in ${attempts} attempts!`);
-
         let score = (maxAttempts - attempts + 1) * 10;
         console.log(`Your score: ${score} points (max ${maxAttempts * 10})`);
     } else {
