@@ -1,6 +1,5 @@
 function generateRandomNumber() {
-    const randomNumber = Math.floor(Math.random() * 100) + 1; 
-    return randomNumber;
+    return Math.floor(Math.random() * 100) + 1; 
 }
 
 function getPlayerGuess() {
@@ -41,10 +40,51 @@ function getPlayerGuess() {
 
 function checkGuess(playerGuess, randomNumber) {
     if (playerGuess < randomNumber) {
-        alert("Too low! Try again.");
+        return "Too low! Try again.";
     } else if (playerGuess > randomNumber) {
-        alert("Too high! Try again.");
+        return "Too high! Try again.";
     } else {
-        alert("Congratulations! You've guessed the number!");
+        return "Congratulations! You've guessed the number!";
     }
 }
+
+function game() {
+    const randomNumber = generateRandomNumber();
+    let attempts = 0;
+    const maxAttempts = 10;
+
+    console.log("Welcome to the Number Guessing Game!");
+    console.log(`You have ${maxAttempts} attempts to guess the number.`);
+    
+    let hasWon = false;
+
+    while (attempts < maxAttempts) {
+        const playerGuess = getPlayerGuess();
+        attempts++;        
+        const result = checkGuess(playerGuess, randomNumber);
+                
+        if (result === "Too low! Try again.") {
+            console.log(`Attempt ${attempts}: ${playerGuess} is too low.`);
+        } else if (result === "Too high! Try again.") {
+            console.log(`Attempt ${attempts}: ${playerGuess} is too high.`);
+        } else {  // correct
+            console.log(`Attempt ${attempts}: ${playerGuess} is correct!`);
+            hasWon = true;
+            break;
+        }
+    }
+
+    if (hasWon) {
+        console.log(`\nYou won in ${attempts} attempts!`);
+
+        let score = (maxAttempts - attempts + 1) * 10;
+        console.log(`Your score: ${score} points (max ${maxAttempts * 10})`);
+    } else {
+        console.log(`Game Over! You used all ${maxAttempts} attempts.`);
+        console.log(`The correct number was: ${randomNumber}`);
+        console.log(`Attempts used: ${maxAttempts}`);
+        console.log(`Your score: 0 points (no correct guess)`);
+    }
+}
+
+game();
