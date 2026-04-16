@@ -33,9 +33,18 @@ function getPlayerGuess() {
                 alert("Please enter a number between 1 and 100.");
             }  
             else {
-                alert("Congratulations! You've guessed the number!");
                 return guess;
             }
         }
+    }
+}
+
+function checkGuess(playerGuess, randomNumber) {
+    if (playerGuess < randomNumber) {
+        alert("Too low! Try again.");
+    } else if (playerGuess > randomNumber) {
+        alert("Too high! Try again.");
+    } else {
+        alert("Congratulations! You've guessed the number!");
     }
 }
