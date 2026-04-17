@@ -67,9 +67,11 @@ function game() {
                 
         if (result === "Too low! Try again.") {
             console.log(`Attempt ${attempts}: ${playerGuess} is too low.`);
+            alert(`Attempt ${attempts}: ${playerGuess} is too low.`);
         } else if (result === "Too high! Try again.") {
             console.log(`Attempt ${attempts}: ${playerGuess} is too high.`);
-        } else {  // correct
+            alert(`Attempt ${attempts}: ${playerGuess} is too high.`);
+        } else {
             console.log(`Attempt ${attempts}: ${playerGuess} is correct!`);
             hasWon = true;
             break;
@@ -78,14 +80,16 @@ function game() {
 
     // bonus notification and score calculation
     if (hasWon) {
-        console.log(`\nYou won in ${attempts} attempts!`);
         let score = (maxAttempts - attempts + 1) * 10;
+        console.log(`\nYou won in ${attempts} attempts!`);
         console.log(`Your score: ${score} points (max ${maxAttempts * 10})`);
+        alert(`You won in ${attempts} attempts!\nYour score: ${score} points`);
     } else {
         console.log(`Game Over! You used all ${maxAttempts} attempts.`);
         console.log(`The correct number was: ${randomNumber}`);
         console.log(`Attempts used: ${maxAttempts}`);
         console.log(`Your score: 0 points (no correct guess)`);
+        alert(`Game Over! The number was ${randomNumber}.\nAttempts used: ${maxAttempts}\nYour score: 0 points`);
     }
 }
 
