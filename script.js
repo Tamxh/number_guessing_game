@@ -6,9 +6,18 @@ function getPlayerGuess() {
     let guess;
 
     while (true) {
-        guess = prompt("Guess a number between 1 and 100:");
+        guess = prompt("Guess a number between 1 and 100 (Cancel to quit):");
 
-        if (guess === null || guess.trim() === "") {
+        if (guess === null){
+            const confirmExit = confirm("Are you sure you want to quit the game?");
+            
+            if (confirmExit) {
+                return null ; // signal exit
+            } else {
+                continue; // go back to game
+            }}
+            
+        if (guess.trim() === "") {
             alert("Input cannot be empty!");
         }
         else {
@@ -62,6 +71,14 @@ function game() {
 
     while (attempts < maxAttempts) {
         const playerGuess = getPlayerGuess();
+        
+        // If user chose to exit
+        if (playerGuess === null) {
+        alert("You exited the game.");
+        console.log("Game exited by user.");
+        return; // stop the game completely
+        }
+
         attempts++;        
         const result = checkGuess(playerGuess, randomNumber);
                 
@@ -93,4 +110,5 @@ function game() {
     }
 }
 
+//run function to start the game
 game();
