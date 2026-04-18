@@ -63,9 +63,9 @@ function game() {
     const maxAttempts = 10;
 
     // introduction
-    console.log("Welcome to the Number Guessing Game!");
-    console.log("Defeat the Evil AI in a Number Guessing Game!");
-    console.log("You have 10 attempts to guess the number.");
+    console.log("🎮 Welcome to the Number Guessing Game!");
+    console.log("🤖 Defeat the Evil AI in a Number Guessing Game!");
+    console.log("🎯 You have 10 attempts to guess the number.");
     alert("🎮 Welcome to the Number Guessing Game!\n" +
         "🤖 Defeat the Evil AI in a Number Guessing Game!\n" +
         "🎯 You have 10 attempts to guess the number between 1 and 100.\n 🍀Good luck!\n" +
