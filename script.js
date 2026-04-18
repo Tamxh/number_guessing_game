@@ -56,7 +56,7 @@ function game() {
     // introduction
     console.log("Welcome to the Number Guessing Game!");
     console.log(`You have ${maxAttempts} attempts to guess the number.`);
-    
+    alert(`Welcome to the Number Guessing Game!\nYou have ${maxAttempts} attempts to guess the number between 1 and 100.`);
     // bonus tracker
     let hasWon = false;
 
