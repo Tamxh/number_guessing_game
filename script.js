@@ -49,11 +49,11 @@ function getPlayerGuess() {
 
 function checkGuess(playerGuess, randomNumber) {
     if (playerGuess < randomNumber) {
-        return "Too low! Try again.";
+        return "⬇️ Too low! Try again.";
     } else if (playerGuess > randomNumber) {
-        return "Too high! Try again.";
+        return "⬆️ Too high! Try again.";
     } else {
-        return "Congratulations! You've guessed the number!";
+        return "✅ Congratulations! You've guessed the number!";
     }
 }
 
@@ -64,8 +64,13 @@ function game() {
 
     // introduction
     console.log("Welcome to the Number Guessing Game!");
-    console.log(`You have ${maxAttempts} attempts to guess the number.`);
-    alert(`Welcome to the Number Guessing Game!\nYou have ${maxAttempts} attempts to guess the number between 1 and 100.`);
+    console.log("Defeat the Evil AI in a Number Guessing Game!");
+    console.log("You have 10 attempts to guess the number.");
+    alert("🎮 Welcome to the Number Guessing Game!\n" +
+        "🤖 Defeat the Evil AI in a Number Guessing Game!\n" +
+        "🎯 You have 10 attempts to guess the number between 1 and 100.\n 🍀Good luck!\n" +
+        "\n💡 Tip: Follow the game progress in the console for more details (Ctrl+Shift+I).");
+
     // bonus tracker
     let hasWon = false;
 
@@ -76,16 +81,17 @@ function game() {
         if (playerGuess === null) {
         alert("You exited the game.");
         console.log("Game exited by user.");
+        console.log("To play again, refresh the page or type 'game()' in the console.");
         return; // stop the game completely
         }
 
         attempts++;        
         const result = checkGuess(playerGuess, randomNumber);
                 
-        if (result === "Too low! Try again.") {
+        if (result === "⬇️ Too low! Try again.") {
             console.log(`Attempt ${attempts}: ${playerGuess} is too low.`);
             alert(`Attempt ${attempts}: ${playerGuess} is too low.`);
-        } else if (result === "Too high! Try again.") {
+        } else if (result === "⬆️ Too high! Try again.") {
             console.log(`Attempt ${attempts}: ${playerGuess} is too high.`);
             alert(`Attempt ${attempts}: ${playerGuess} is too high.`);
         } else {
@@ -98,15 +104,17 @@ function game() {
     // bonus notification and score calculation
     if (hasWon) {
         let score = (maxAttempts - attempts + 1) * 10;
-        console.log(`\nYou won in ${attempts} attempts!`);
-        console.log(`Your score: ${score} points (max ${maxAttempts * 10})`);
-        alert(`You won in ${attempts} attempts!\nYour score: ${score} points`);
+        console.log(`\n🏆 You won in ${attempts} attempts!`);
+        console.log(`💯 Your score: ${score} points (max ${maxAttempts * 10})`);
+        console.log(`To play again, refresh the page or type 'game()' in the console.`);
+        alert(`🏆 You won in ${attempts} attempts!\n💯 Your score: ${score} points`);
     } else {
-        console.log(`Game Over! You used all ${maxAttempts} attempts.`);
+        console.log(`🏁 Game Over! You used all ${maxAttempts} attempts.`);
         console.log(`The correct number was: ${randomNumber}`);
         console.log(`Attempts used: ${maxAttempts}`);
-        console.log(`Your score: 0 points (no correct guess)`);
-        alert(`Game Over! The number was ${randomNumber}.\nAttempts used: ${maxAttempts}\nYour score: 0 points`);
+        console.log(`💯 Your score: 0 points (no correct guess)`);
+        console.log(`To play again, refresh the page or type 'game()' in the console.`);
+        alert(`🏁 Game Over! The number was ${randomNumber}.\nAttempts used: ${maxAttempts}\nYour score: 0 points`);
     }
 }
 
